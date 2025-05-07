@@ -8,6 +8,8 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { authGuard } from './core/auth.guard';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { OverviewComponent } from './overview/overview.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -17,7 +19,9 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'overview', component: OverviewComponent },
       { path: 'payment', component: PaymentComponent },
+      { path: 'transaction', component: TransactionComponent },
       { path: 'history', component: PaymentHistoryComponent },
     ],
   },
