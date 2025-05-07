@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div class="max-w-md mx-auto mt-12 p-6 bg-white rounded shadow">
+  <h2 class="text-2xl font-bold mb-6 text-center">Cadastro</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label for="email" class="block mb-1 font-medium">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="w-full p-2 border rounded focus:outline-none focus:ring"
+      />
+      <div *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid" class="text-red-500 text-sm mt-1">
+      <p *ngIf="registerForm.controls['email'].errors?.['required']">O e-mail é obrigatório.</p>
+      <p *ngIf="registerForm.controls['email'].errors?.['email']">E-mail inválido.</p>
+    </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="block mb-1 font-medium">Senha</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="w-full p-2 border rounded focus:outline-none focus:ring"
+      />
+      <div *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" class="text-red-500 text-sm mt-1">
+      <p *ngIf="registerForm.controls['password'].errors?.['required']">A senha é obrigatória.</p>
+      <p *ngIf="registerForm.controls['password'].errors?.['minlength']">Mínimo de 6 caracteres.</p>
+    </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="isLoading || registerForm.invalid"
+      class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+    >
+      {{ isLoading ? 'Registrando...' : 'Cadastrar' }}
+    </button>
+
+    <div *ngIf="errorMessage" class="text-red-600 text-sm mt-4 text-center">
+      {{ errorMessage }}
+    </div>
+  </form>
+
+  <p class="mt-4 text-sm text-center">
+    Já tem conta?
+    <a routerLink="/login" class="text-blue-600 hover:underline">Faça login</a>
+  </p>
+</div>
