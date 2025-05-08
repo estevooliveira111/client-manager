@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Menu {
   label: string;
@@ -51,11 +52,16 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.user$.subscribe((user) => {
       this.userEmail = user?.email ?? null;
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
