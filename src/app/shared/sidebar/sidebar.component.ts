@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { BalanceDisplayComponent } from "../balance-display/balance-display.component";
 
 interface Menu {
   label: string;
@@ -11,7 +12,7 @@ interface Menu {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule],
+  imports: [CommonModule, BalanceDisplayComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
@@ -44,7 +45,7 @@ export class SidebarComponent implements OnInit {
       label: 'Payments',
       route: 'payments',
       icon: 'fas fa-dollar-sign',
-    }
+    },
   ];
 
   constructor(private authService: AuthService, private router: Router) {}

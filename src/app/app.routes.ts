@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { PaymentHistoryComponent } from './history/payment-history/payment-history.component';
 import { PaymentComponent } from './payments/payment/payment.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
@@ -23,8 +22,16 @@ export const routes: Routes = [
     component: DashboardLayoutComponent,
     canActivate: [authGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'overview', component: OverviewComponent },
+      {
+        path: 'dashboard',
+        component: OverviewComponent,
+        data: { title: 'Dashboard', icon: 'dashboard' },
+      },
+      {
+        path: 'overview',
+        component: OverviewComponent,
+        data: { title: 'Dashboard', icon: 'dashboard' },
+      },
       { path: 'payment', component: PaymentComponent },
       { path: 'transaction', component: TransactionComponent },
       { path: 'history', component: PaymentHistoryComponent },

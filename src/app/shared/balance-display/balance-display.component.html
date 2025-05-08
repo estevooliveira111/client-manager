@@ -1,0 +1,21 @@
+<div class="mt-16 mx-9 md:mt-2 space-y-3 ">
+  <label class="mt-5 text-neutral-800 mb-0 font-semibold block">Saldo na conta</label>
+
+  <div class="flex justify-between items-center">
+    <p class="text-lg font-semibold">
+      {{ visible ? ('R$ ' + balance.toFixed(2).replace('.', ',')) : '•••••' }}
+    </p>
+
+    <button
+      type="button"
+      (click)="toggleView()"
+      class="text-neutral-800 hover:text-neutral-800 focus:outline-none"
+    >
+      <span class="material-symbols-outlined text-xl">
+        {{ visible ? 'visibility_off' : 'visibility' }}
+      </span>
+    </button>
+  </div>
+</div>
+
+<hr class="my-4 border-neutral-300" />

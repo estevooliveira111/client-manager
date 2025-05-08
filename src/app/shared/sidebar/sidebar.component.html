@@ -25,19 +25,18 @@
       />
     </svg>
   </label>
+
   <nav
     aria-label="Sidebar Navigation"
-    class="peer-checked:w-64 left-0 z-10 flex h-screen w-0 flex-col overflow-hidden bg-gray-700 text-white transition-all md:h-screen md:w-64 lg:w-72"
+    class="peer-checked:w-64 left-0 z-10 flex h-screen w-0 flex-col overflow-hidden bg-[#D34624] text-white transition-all md:h-screen md:w-64 lg:w-72"
   >
-    <div class="bg-slate-800 mt-5 py-4 pl-10 md:mt-10">
-      <span class="">
-        <span
-          class="mr-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 align-bottom text-2xl font-bold"
-          >U</span
-        >
-        <span class="text-xl">rbane</span>
-      </span>
+
+    <div class="bg-[#933119] py-4 pl-10 flex flex-col items-center px-4 shadow sm:flex-row md:h-20">
+      <img class="w-1/2" src="https://stric-bank-api.s3.amazonaws.com/copyo/clients/logos/bandec/bandec-white.png" alt="logo">
     </div>
+
+    <app-balance-display />
+
     <ul class="mt-8 space-y-3 md:mt-2">
       <li class="relative" *ngFor="let menu of menus">
         <a
@@ -53,7 +52,7 @@
       </li>
     </ul>
 
-    <div class="my-6 mt-auto flex items-center justify-between px-4 cursor-pointer">
+    <!-- <div class="my-6 mt-auto flex items-center justify-between px-4 cursor-pointer">
       <div *ngIf="userAvatar">
         <img
           image-alt="Avatar"
@@ -80,6 +79,6 @@
       >
         <i class="fas fa-sign-out-alt fa-lg"></i>
       </button>
-    </div>
+    </div> -->
   </nav>
 </aside>
