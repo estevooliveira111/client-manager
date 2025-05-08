@@ -44,12 +44,7 @@ export class SidebarComponent implements OnInit {
       label: 'Payments',
       route: 'payments',
       icon: 'fas fa-dollar-sign',
-    },
-    {
-      label: 'Configurações',
-      route: 'configuracoes',
-      icon: 'fas fa-cogs',
-    },
+    }
   ];
 
   constructor(private authService: AuthService, private router: Router) {}

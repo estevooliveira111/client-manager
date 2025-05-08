@@ -1,0 +1,47 @@
+<div class="flex w-screen flex-wrap text-gray-800 bg-white">
+  <div
+    class="relative hidden h-screen select-none flex-col justify-center bg-[url(/images/sign-in.png)] text-center md:flex md:w-1/2"
+  ></div>
+
+  <div class="flex w-full flex-col md:w-1/2">
+    <div
+      class="my-auto mx-auto flex flex-col justify-center px-6 pt-8 md:justify-start lg:w-[28rem]"
+    >
+      <div class="flex justify-start">
+        <img
+          src="https://stric-bank-api.s3.amazonaws.com/copyo/clients/logos/bandec/bandec-dark.png"
+          class="h-1/3"
+          alt="bandec-white"
+        />
+      </div>
+
+      <button onclick="window.history.back()" class="mb-2 flex justify-start items-center gap-2 text-sm text-stone-600 hover:underline">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <label class="">Voltar</label>
+      </button>
+
+      <p class="text-center text-5xl  md:text-left md:leading-tight">
+        Pronto para ter uma <strong>Conta BANDEC?</strong>
+      </p>
+      <p class="text-gray-500 text-center font-medium md:text-left">
+        Antes de seguir selecione o tipo de conta que deseja abrir
+      </p>
+
+      <a href="/create-account-pf"
+        type="submit"
+        class="mt-4 flex items-center justify-center gap-2 w-full rounded-sm bg-stone-800 px-12 py-4 text-center text-base font-semibold text-white outline-none ring-stone-500 ring-offset-2 transition hover:bg-stone-700 focus:ring-2"
+      >
+        <span class="material-symbols-outlined">person</span>
+        <span>Sou Pessoa Física</span>
+      </a>
+
+      <a href="/create-account-pj"
+        type="submit"
+        class="mt-4 flex items-center justify-center gap-2 w-full rounded-sm bg-stone-800 px-12 py-4 text-center text-base font-semibold text-white outline-none ring-stone-500 ring-offset-2 transition hover:bg-stone-700 focus:ring-2"
+      >
+        <span class="material-symbols-outlined">apartment</span>
+        <span>Sou Pessoa Jurídica</span>
+      </a>
+    </div>
+  </div>
+</div>
