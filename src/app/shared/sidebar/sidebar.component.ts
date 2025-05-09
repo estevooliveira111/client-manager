@@ -4,10 +4,15 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BalanceDisplayComponent } from "../balance-display/balance-display.component";
 
-interface Menu {
+interface MenuItem {
   label: string;
   route: string;
   icon: string;
+}
+
+interface MenuCategory {
+  title: string|null;
+  items: MenuItem[];
 }
 
 @Component({
@@ -20,31 +25,39 @@ export class SidebarComponent implements OnInit {
   userEmail: string | null = null;
   userName: string | null = null;
   userAvatar: string | null = null;
-  menus: Menu[] = [
+
+  menuCategories: MenuCategory[] = [
     {
-      label: 'Overview',
-      route: 'overview',
-      icon: 'fas fa-tachometer-alt',
+      title: '',
+      items: [
+        { label: 'Home', route: 'overview', icon: 'fas fa-home-alt' },
+        {
+          label: 'Transações',
+          route: 'transaction',
+          icon: 'fas fa-exchange-alt',
+        },
+      ],
     },
     {
-      label: 'Transaction',
-      route: 'transaction',
-      icon: 'fas fa-exchange-alt',
-    },
-    {
-      label: 'Pix Saida',
-      route: 'pix-saida',
-      icon: 'fas fa-money-bill-wave',
-    },
-    {
-      label: 'Pagamentos',
-      route: 'pagamentos',
-      icon: 'fas fa-credit-card',
-    },
-    {
-      label: 'Payments',
-      route: 'payments',
-      icon: 'fas fa-dollar-sign',
+      title: 'Serviços Bancários',
+      items: [
+        {
+          label: 'Depositar',
+          route: 'pix-saida',
+          icon: 'fas fa-money-bill-wave',
+        },
+        { label: 'Pix', route: 'pagamentos', icon: 'fas fa-credit-card' },
+        {
+          label: 'Pagar Contas',
+          route: 'pagamentos',
+          icon: 'fas fa-credit-card',
+        },
+        {
+          label: 'Transferir TED/DOC',
+          route: 'payments',
+          icon: 'fas fa-dollar-sign',
+        },
+      ],
     },
   ];
 
